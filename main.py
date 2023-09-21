@@ -31,7 +31,7 @@ async def run():
     # await transfer_chats()
     # await transfer_chat_messages()
     # await transfer_mailings()
-    await transfer_bot_users()
+    # await transfer_bot_users()
     await transfer_join_request()
     await transfer_mailing_tasks()
 
@@ -69,7 +69,7 @@ async def transfer_join_request():
     bs = []
     c = 0
     for jr in jrs:
-        jr.append(JoinRequest(
+        bs.append(JoinRequest(
             bot_id=jr.bot_id,
             subscriber_id=jr.subscriber_id,
             chat_id=jr.chat_id,
@@ -89,7 +89,7 @@ async def transfer_mailing_tasks():
     bs = []
     c = 0
     for mt in mts:
-        mt.append(MailingTask(
+        bs.append(MailingTask(
             bot_id=mt.bot_id,
             chat_id=mt.chat_id,
             user_id=mt.user_id,
