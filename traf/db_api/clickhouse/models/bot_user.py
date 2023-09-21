@@ -47,7 +47,6 @@ class BotUserDAO(ClickHouseBaseDAO):
             query = text('''
                                     SELECT bot_id, user_id, name, fullname, username, language, sex, chat_id, alive, version, created
                                     FROM bot_user
-                                    WHERE alive=1
                                 ''')
 
             results = session.execute(query)

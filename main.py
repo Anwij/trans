@@ -31,7 +31,7 @@ async def run():
     # await transfer_chats()
     # await transfer_chat_messages()
     # await transfer_mailings()
-    # await transfer_bot_users()
+    await transfer_bot_users()
     await transfer_join_request()
     await transfer_mailing_tasks()
 
