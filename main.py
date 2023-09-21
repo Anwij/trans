@@ -49,9 +49,9 @@ async def transfer_bot_users():
             fullname=b[3],
             username=b[4],
             language=b[5],
-            sex=None,
+            sex=b[6],
             chat_id=b[7],
-            alive=1,
+            alive=b[8],
             version=b[9],
             created=datetime.datetime.utcnow()
         ))
