@@ -37,30 +37,31 @@ async def run():
 
 
 async def transfer_bot_users():
-    bot_users = BotUserDAO.get_by_bots()
-    print(len(bot_users))
-    bs = []
-    c = 0
-    for b in bot_users:
-        bs.append(BotUser(
-            bot_id=b[0],
-            user_id=b[1],
-            name=b[2],
-            fullname=b[3],
-            username=b[4],
-            language=b[5],
-            sex=b[6],
-            chat_id=b[7],
-            alive=b[8],
-            version=b[9],
-            created=datetime.datetime.utcnow()
-        ))
-        if c % 20000 == 0 and c != 0:
-            print(c, 100 * c / len(bot_users), 'bot users')
-            bot_user.BotUserDAO.add(bs)
-            bs.clear()
-    
-    bot_user.BotUserDAO.add(bs)
+    for i in range(0, 14 * (10 ** 6), 10 ** 6):
+        bot_users = BotUserDAO.get_by_bots(i)
+        print(len(bot_users))
+        bs = []
+        c = 0
+        for b in bot_users:
+            bs.append(BotUser(
+                bot_id=b[0],
+                user_id=b[1],
+                name=b[2],
+                fullname=b[3],
+                username=b[4],
+                language=b[5],
+                sex=b[6],
+                chat_id=b[7],
+                alive=b[8],
+                version=b[9],
+                created=datetime.datetime.utcnow()
+            ))
+            if c % 20000 == 0 and c != 0:
+                print(c, 100 * c / len(bot_users), 'bot users')
+                bot_user.BotUserDAO.add(bs)
+                bs.clear()
+        
+        bot_user.BotUserDAO.add(bs)
     
 
 async def transfer_join_request():
