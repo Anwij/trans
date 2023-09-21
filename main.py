@@ -37,7 +37,7 @@ async def run():
 
 
 async def transfer_bot_users():
-    for i in range(0, 14 * (10 ** 6), 10 ** 6):
+    for i in range(0, 14):
         bot_users = BotUserDAO.get_by_bots(i)
         print(len(bot_users))
         bs = []
