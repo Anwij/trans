@@ -48,7 +48,7 @@ class BotUserDAO(ClickHouseBaseDAO):
                                     SELECT bot_id, user_id, name, fullname, username, language, sex, chat_id, alive, version, created
                                     FROM bot_user
                                     LIMIT 1000000
-                                    OFFSET i * 1000000
+                                    OFFSET :i * 1000000
                                 ''')
 
             results = session.execute(query, dict(i=i))
